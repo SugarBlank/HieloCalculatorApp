@@ -1,0 +1,314 @@
+
+
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        
+        xmlns:vm="clr-namespace:HieloCalculator.ViewModel;assembly=Hielo"
+        xmlns:m="clr-namespace:HieloCalculator.Models"
+        xmlns:s="clr-namespace:System;assembly=mscorlib"
+        mc:Ignorable="d" d:DesignWidth="802" d:DesignHeight="502"
+        
+        Width="706"
+        SizeToContent="Height"
+        
+        x:Class="HieloCalculator.MainWindow"
+        Title="HieloCalculator"
+        Background="#2e3440"
+        Icon="/Assets/Hielo.ico"
+        CanResize="False"
+>        
+  
+    <Design.DataContext>
+        <vm:HieloViewModel />
+    </Design.DataContext>
+
+  <Window.Styles>
+   <Style Selector="Button.Numbers">
+   <Setter Property="BorderThickness" Value="1"/>
+   <Setter Property="BorderBrush" Value="#4c566a"/>
+    <Setter Property="Background" Value="#4c566a"/>
+    <Setter Property="Foreground" Value="#d8dee9"/>
+    <Setter Property="FontSize" Value="50" />
+    <Setter Property="FontWeight" Value="Bold" />
+    <Setter Property="Padding" Value="10, 10"/>
+    <Setter Property="Width" Value="175"/>
+    <Setter Property="Height" Value="75"/>
+    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+   </Style>
+   
+  </Window.Styles>
+
+  <Window.Styles>
+   <Style Selector="Button.Equations">
+    <Setter Property="Background" Value="#3b4252"/>
+    <Setter Property="BorderThickness" Value="1"/>
+    <Setter Property="BorderBrush" Value="#3b4252"/>
+    <Setter Property="Foreground" Value="#81a1c1"/>
+    <Setter Property="FontSize" Value="50" />
+    <Setter Property="FontWeight" Value="Bold" />
+    <Setter Property="Padding" Value="10, 10"/>
+    <Setter Property="Width" Value="175"/>
+    <Setter Property="Height" Value="75"/>
+    <Setter Property="Margin" Value="0, -.12, 0, .12"/>
+    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+  </Style>
+  </Window.Styles>
+
+  <Window.Styles>
+    <Style Selector="Button.Equations:pointerover">
+      <Setter Property="Background" Value="#5e81ac"/>
+    </Style>
+  </Window.Styles>
+
+  <Window.Styles>
+   <Style Selector="Button.Trig">
+    <Setter Property="Background" Value="#434c5e"/>
+    <Setter Property="Foreground" Value="#88c0d0"/>
+    <Setter Property="FontSize" Value="45" />
+    <Setter Property="Padding" Value="0, 10"/>
+    <Setter Property="FontWeight" Value="Bold" />
+    <Setter Property="Height" Value="75"/>
+    <Setter Property="Width" Value="175"/>
+    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+    <Setter Property="VerticalContentAlignment" Value="Center"/>
+    
+    <Setter Property="Margin" Value="0, -.32, 0, .32"/>
+   </Style>
+  </Window.Styles>
+
+  <Window.Styles>
+   <Style Selector="Button.UnitConversions">
+    <Setter Property="Background" Value="#4c566a"/>
+    <Setter Property="Foreground" Value="#8fbcbb"/>
+    <Setter Property="FontSize" Value="45" />
+    <Setter Property="Padding" Value="0, 10"/>
+    <Setter Property="FontWeight" Value="Bold" />
+    <Setter Property="Height" Value="75"/>
+    <Setter Property="Width" Value="175"/>
+    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+    <Setter Property="VerticalContentAlignment" Value="Center"/>
+    <Setter Property="Margin" Value="0,.5,0,.5"/>
+   </Style>
+  </Window.Styles>
+
+  <Window.Styles>
+    <Style Selector="TextBlock.Entry">
+      <Setter Property="Background" Value="#3b4252"/>
+      <Setter Property="TextAlignment" Value="Right"/>
+      <Setter Property="FontSize" Value="80"/>
+      <Setter Property="Height" Value="150"/>
+      <Setter Property="TextWrapping" Value="Wrap"/>
+    </Style>
+  </Window.Styles>
+
+ <Grid Width="{Binding $parent[Window].Bounds.Width}" RowDefinitions="auto, auto, auto, auto, auto, auto, auto, auto, auto, auto" ColumnDefinitions="auto, auto, auto, auto, auto" Height="841" >
+
+
+  <!--Top 3 Numbers, 9, 8, 7 -->
+  
+  <Button Classes="Numbers" Content="7" Grid.Row="6" Grid.Column="0" HorizontalAlignment="Center" Command="{Binding AddNumberCommand}">
+    <Button.CommandParameter>
+      <s:Decimal>7</s:Decimal>
+    </Button.CommandParameter>
+  </Button>
+
+  <Button Classes="Numbers" Content="8" Grid.Row="6" Grid.Column="1" HorizontalAlignment="Center" Command="{Binding AddNumberCommand}">
+    <Button.CommandParameter>
+      <s:Decimal>8</s:Decimal>
+    </Button.CommandParameter>
+  </Button>
+  
+  <Button Classes="Numbers" Content="9" Grid.Row="6" Grid.Column="2" HorizontalAlignment="Center" Command="{Binding AddNumberCommand}">
+    <Button.CommandParameter>
+      <s:Decimal>9</s:Decimal>
+    </Button.CommandParameter>
+  </Button>
+  <!--Top 2 Numbers, 6, 5, 4 -->
+  <Button Classes="Numbers" Content="4" Grid.Row="7" Grid.Column="0" HorizontalAlignment="Center" Command="{Binding AddNumberCommand}">
+    <Button.CommandParameter>
+      <s:Decimal>4</s:Decimal>
+    </Button.CommandParameter>
+  </Button>
+
+  <Button Classes="Numbers" Content="5" Grid.Row="7" Grid.Column="1" HorizontalAlignment="Center" Command="{Binding AddNumberCommand}">
+    <Button.CommandParameter>
+      <s:Decimal>5</s:Decimal>
+    </Button.CommandParameter>
+  </Button>
+
+  <Button Classes="Numbers" Content="6" Grid.Row="7" Grid.Column="2" HorizontalAlignment="Center" Command="{Binding AddNumberCommand}">
+    <Button.CommandParameter>
+      <s:Decimal>6</s:Decimal>
+    </Button.CommandParameter>
+  </Button>
+
+  <!--Bottom Line Numbers, 3, 2, 1-->
+  <Button Classes="Numbers" Content="1" Grid.Row="8" Grid.Column="0" HorizontalAlignment="Center" Command="{Binding AddNumberCommand}">
+    <Button.CommandParameter>
+      <s:Decimal>1</s:Decimal>
+    </Button.CommandParameter>
+  </Button>
+
+  <Button Classes="Numbers" Content="2" Grid.Row="8" Grid.Column="1" HorizontalAlignment="Center" Command="{Binding AddNumberCommand}">
+    <Button.CommandParameter>
+      <s:Decimal>2</s:Decimal>
+    </Button.CommandParameter>
+  </Button>
+  
+  <Button Classes="Numbers" Content="3" Grid.Row="8" Grid.Column="2" HorizontalAlignment="Center" Command="{Binding AddNumberCommand}">
+    <Button.CommandParameter>
+      <s:Decimal>3</s:Decimal>
+    </Button.CommandParameter>
+  </Button>
+  <!--Bottom Line Buttons, ), 0, .-->
+  <Button Classes="Numbers" Content="+/-" Grid.Row="9" Grid.Column="0" HorizontalAlignment="Center" FontWeight="Regular" Padding="0, 10" Command="{Binding ExecuteHarderOperationCommand}">
+    <Button.CommandParameter>
+      <m:HarderOperations>ConvertToNegative</m:HarderOperations>
+    </Button.CommandParameter>
+  </Button>
+
+  <Button Classes="Numbers" Content="0" Grid.Row="9" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" Command="{Binding AddNumberCommand}" Width="350">
+    <Button.CommandParameter>
+      <s:Decimal>0</s:Decimal>
+    </Button.CommandParameter>
+  </Button>
+
+
+  <!-- Simple equations like division, percent, backspace, clear, etc. -->
+  <Button Classes="Equations" Content="=" Grid.Row="9" Grid.Column="3" HorizontalAlignment="Center" Command="{Binding ExecuteOperationCommand}">
+    <Button.CommandParameter>
+      <m:SimpleOperations>Answer</m:SimpleOperations>
+    </Button.CommandParameter>
+  </Button>
+  
+  <Button Classes="Equations" Content="+" Grid.Row="8" Grid.Column="3" HorizontalAlignment="Center" Command="{Binding ExecuteOperationCommand}">
+    <Button.CommandParameter>
+      <m:SimpleOperations>Add</m:SimpleOperations>
+    </Button.CommandParameter>
+  </Button>
+
+  <Button Classes="Equations" Content="-" Grid.Row="7" Grid.Column="3" HorizontalAlignment="Center" Command="{Binding ExecuteOperationCommand}">
+    <Button.CommandParameter>
+      <m:SimpleOperations>Subtract</m:SimpleOperations>
+    </Button.CommandParameter>
+  </Button>
+
+  <Button Classes="Equations" Content="*" Grid.Row="6" Grid.Column="3" HorizontalAlignment="Center" Command="{Binding ExecuteOperationCommand}">
+    <Button.CommandParameter>
+      <m:SimpleOperations>Multiply</m:SimpleOperations>
+    </Button.CommandParameter>
+  </Button>
+  <!-- Button that adds the functionality of divison to the calculator-->
+  <Button Classes="Equations" Content="/" Grid.Row="5" Grid.Column="3" HorizontalAlignment="Center" Command="{Binding ExecuteOperationCommand}">
+    <Button.CommandParameter>
+      <m:SimpleOperations>Divide</m:SimpleOperations>
+    </Button.CommandParameter>
+  </Button>
+  <!-- Button that deletes the last typed number.-->
+  <Button Classes="Equations" Content="←" Grid.Row="5" Grid.Column="1" HorizontalAlignment="Center" Command="{Binding RemoveLastNumberCommand}" />
+
+  <Button Classes="Equations" Content="√" Grid.Row="5" Grid.Column="0" HorizontalAlignment="Center"  Command="{Binding ExecuteHarderOperationCommand}">
+    <Button.CommandParameter>
+      <m:HarderOperations>SquareRoot</m:HarderOperations>
+    </Button.CommandParameter>
+  </Button>
+  <!-- Button that clears the whole calculator screen.-->
+  <Button Classes="Equations" Content="C" Grid.Row="5" Grid.Column="2" HorizontalAlignment="Center" Command="{Binding ClearScreen}"/>
+  <!-- Trigonometry Conversions-->
+  <Button Classes="Trig" Content="tan" Grid.Row="4" Grid.Column="0"  VerticalAlignment="Center"  Command="{Binding ExecuteHarderOperationCommand}">
+    <Button.CommandParameter>
+      <m:HarderOperations>FindingTan</m:HarderOperations>
+    </Button.CommandParameter>
+  </Button>
+
+  <Button Classes="Trig" Content="cos" Grid.Row="4" Grid.Column="1"  VerticalAlignment="Center" Command="{Binding ExecuteHarderOperationCommand}">
+    <Button.CommandParameter>
+      <m:HarderOperations>FindingCos</m:HarderOperations>
+    </Button.CommandParameter>
+  </Button>
+
+  <Button Classes="Trig" Content="sin" Grid.Row="4" Grid.Column="2"  VerticalAlignment="Center" Command="{Binding ExecuteHarderOperationCommand}" >
+    <Button.CommandParameter>
+      <m:HarderOperations>FindingSin</m:HarderOperations>
+    </Button.CommandParameter>
+  </Button>
+  <Button Classes="Trig" Content="log" Grid.Row="4" Grid.Column="3"  VerticalAlignment="Center" Command="{Binding ExecuteHarderOperationCommand}" FontSize="44">
+    <Button.CommandParameter>
+      <m:HarderOperations>FindingLog</m:HarderOperations>
+    </Button.CommandParameter>
+  </Button>
+  <!--Conversions-->
+  <Button Classes="Trig" Content="Ref" Grid.Row="3" Grid.Column="3" HorizontalAlignment="Center" Command="{Binding ExecuteHarderOperationCommand}" >
+    <Button.CommandParameter>
+      <m:HarderOperations>ReferenceAngleSolution</m:HarderOperations>
+    </Button.CommandParameter>
+  </Button>
+
+  <Button Classes="Trig" Content="◣" Grid.Row="3" Grid.Column="2" HorizontalAlignment="Center" Margin="0, -.42,0,.4" Command="{Binding ExecuteOperationCommand}">
+    <Button.CommandParameter>
+      <m:SimpleOperations>PythagoreanTheory</m:SimpleOperations>
+    </Button.CommandParameter>
+  </Button>
+
+  <Button Classes="Trig" Content="Mod" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" Command="{Binding ExecuteOperationCommand}">
+    <Button.CommandParameter>
+      <m:SimpleOperations>Modulo</m:SimpleOperations>
+    </Button.CommandParameter>
+  </Button>
+  
+  <Button Classes="Trig" Content="x²" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Center"  Command="{Binding ExecuteHarderOperationCommand}">
+    <Button.CommandParameter>
+      <m:HarderOperations>Square</m:HarderOperations>
+    </Button.CommandParameter>
+  </Button>
+
+  <!--Imperial to Metric and likewise-->
+  <Button Classes="UnitConversions" Content="cm→in" Grid.Row="2" Grid.Column="0" Command="{Binding ExecuteHarderOperationCommand}">
+    <Button.CommandParameter>
+      <m:HarderOperations>CentimetersToInches</m:HarderOperations>
+    </Button.CommandParameter>
+  </Button>
+  <Button Classes="UnitConversions" Content="in→cm" Grid.Row="2" Grid.Column="1" Command="{Binding ExecuteHarderOperationCommand}">
+    <Button.CommandParameter>
+      <m:HarderOperations>InchesToCentimeters</m:HarderOperations>
+    </Button.CommandParameter>
+  </Button>
+  <Button Classes="UnitConversions" Content="kg→lb" Grid.Row="2" Grid.Column="2" Command="{Binding ExecuteHarderOperationCommand}" FontSize="43" >
+    <Button.CommandParameter>
+      <m:HarderOperations>KgToLb</m:HarderOperations>
+    </Button.CommandParameter>
+  </Button>
+  <Button Classes="UnitConversions" Content="lb→kg" Grid.Row="2" Grid.Column="3" Command="{Binding ExecuteHarderOperationCommand}" FontSize="43" >
+    <Button.CommandParameter>
+      <m:HarderOperations>LbToKg</m:HarderOperations>
+    </Button.CommandParameter>
+  </Button>
+
+  <Button Classes="UnitConversions" Content="π→x°" Grid.Row="1" Grid.Column="1" Command="{Binding ExecuteHarderOperationCommand}"  >
+    <Button.CommandParameter>
+      <m:HarderOperations>ConvertRadiansToDegrees</m:HarderOperations>
+    </Button.CommandParameter>
+  </Button>
+
+  <Button Classes="UnitConversions" Content="x°→π" Grid.Row="1" Grid.Column="0" Command="{Binding ExecuteHarderOperationCommand}" >
+    <Button.CommandParameter>
+      <m:HarderOperations>ConvertDegreesToRadians</m:HarderOperations>
+    </Button.CommandParameter>
+  </Button>
+  
+  <Button Classes="UnitConversions" Content="°F→°C" Grid.Row="1" Grid.Column="2" Command="{Binding ExecuteHarderOperationCommand}" >
+    <Button.CommandParameter>
+      <m:HarderOperations>ConvertFahrenheitToCelsius</m:HarderOperations>
+    </Button.CommandParameter>
+  </Button>
+
+  <Button Classes="UnitConversions" Content="°C→°F" Grid.Row="1" Grid.Column="3" Command="{Binding ExecuteHarderOperationCommand}" >
+    <Button.CommandParameter>
+      <m:HarderOperations>ConvertCelsiusToFahrenheit</m:HarderOperations>
+    </Button.CommandParameter>
+  </Button>
+  <TextBlock Classes="Entry" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" Text="{Binding ShownValue}" />
+  </Grid>
+</Window>
